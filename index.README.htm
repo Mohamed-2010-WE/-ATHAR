@@ -1,0 +1,7915 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>أثر — ATHAR</title>
+
+  <meta
+    name="description"
+    content="ATHAR — Smart School Operations Platform"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root {
+
+      --bg: #07111f;
+      --bg2: #0a1626;
+      --sidebar: #081321;
+
+      --card: #0e1b2d;
+      --card2: #122238;
+
+      --border: rgba(255,255,255,.08);
+
+      --text: #f4f7fb;
+      --muted: #8fa2b8;
+
+      --primary: #20c7b4;
+      --primary2: #119d91;
+
+      --blue: #4d8dff;
+      --orange: #f5a742;
+      --red: #f05b67;
+
+      --radius: 18px;
+
+      --shadow:
+        0 20px 60px rgba(0,0,0,.28);
+
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        "Cairo",
+        "Inter",
+        sans-serif;
+
+      min-height: 100vh;
+
+    }
+
+
+    body.en {
+
+      font-family:
+        "Inter",
+        "Cairo",
+        sans-serif;
+
+    }
+
+
+    button,
+    input,
+    select,
+    textarea {
+
+      font: inherit;
+
+    }
+
+
+    button {
+      cursor: pointer;
+    }
+
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    /* =====================================================
+       APP
+    ===================================================== */
+
+    .app {
+
+      display: flex;
+
+      min-height: 100vh;
+
+    }
+
+
+    /* =====================================================
+       SIDEBAR
+    ===================================================== */
+
+    .sidebar {
+
+      width: 250px;
+
+      min-height: 100vh;
+
+      background: var(--sidebar);
+
+      border-left: 1px solid var(--border);
+
+      padding: 22px 14px;
+
+      position: fixed;
+
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      z-index: 100;
+
+    }
+
+
+    body.en .sidebar {
+
+      right: auto;
+      left: 0;
+
+      border-left: 0;
+      border-right: 1px solid var(--border);
+
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding:
+        5px 10px 25px;
+
+    }
+
+
+    .brand-logo {
+
+      width: 43px;
+      height: 43px;
+
+      border-radius: 13px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          #167e9b
+        );
+
+      color: #03110f;
+
+      font-size: 18px;
+
+      font-weight: 800;
+
+      box-shadow:
+        0 10px 30px
+        rgba(32,199,180,.2);
+
+    }
+
+
+    .brand-text strong {
+
+      display: block;
+
+      font-size: 18px;
+
+      letter-spacing: .5px;
+
+    }
+
+
+    .brand-text span {
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      margin-top: 2px;
+
+    }
+
+
+    .nav-title {
+
+      color: #52657c;
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      padding:
+        10px 12px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .nav {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 4px;
+
+    }
+
+
+    .nav button {
+
+      width: 100%;
+
+      border: 0;
+
+      background: transparent;
+
+      color: #9badc0;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding:
+        11px 13px;
+
+      border-radius: 11px;
+
+      text-align: start;
+
+      transition: .2s;
+
+    }
+
+
+    .nav button:hover {
+
+      background:
+        rgba(255,255,255,.04);
+
+      color: white;
+
+    }
+
+
+    .nav button.active {
+
+      background:
+        rgba(32,199,180,.1);
+
+      color: var(--primary);
+
+    }
+
+
+    .nav-icon {
+
+      width: 20px;
+
+      text-align: center;
+
+      font-size: 16px;
+
+    }
+
+
+    .sidebar-bottom {
+
+      position: absolute;
+
+      left: 14px;
+      right: 14px;
+      bottom: 20px;
+
+    }
+
+
+    .system-card {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+
+      padding: 13px;
+
+    }
+
+
+    .system-card-title {
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .system-status {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      font-size: 11px;
+
+    }
+
+
+    .status-dot {
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+
+      box-shadow:
+        0 0 12px
+        rgba(32,199,180,.7);
+
+    }
+
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+
+    .main {
+
+      margin-right: 250px;
+
+      width:
+        calc(100% - 250px);
+
+      min-height: 100vh;
+
+    }
+
+
+    body.en .main {
+
+      margin-right: 0;
+      margin-left: 250px;
+
+    }
+
+
+    /* =====================================================
+       TOPBAR
+    ===================================================== */
+
+    .topbar {
+
+      height: 70px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding:
+        0 30px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        rgba(7,17,31,.86);
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 50;
+
+      backdrop-filter:
+        blur(16px);
+
+    }
+
+
+    .top-left {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+    }
+
+
+    .mobile-menu {
+
+      display: none;
+
+      border: 0;
+
+      background: transparent;
+
+      color: white;
+
+      font-size: 22px;
+
+    }
+
+
+    .page-title {
+
+      font-size: 18px;
+
+      font-weight: 700;
+
+    }
+
+
+    .top-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+
+    .search {
+
+      width: 230px;
+
+      height: 38px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding:
+        0 12px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        var(--card);
+
+      border-radius: 10px;
+
+    }
+
+
+    .search span {
+
+      color: var(--muted);
+
+    }
+
+
+    .search input {
+
+      width: 100%;
+
+      border: 0;
+
+      outline: 0;
+
+      background: transparent;
+
+      color: white;
+
+    }
+
+
+    .lang-btn {
+
+      height: 38px;
+
+      padding:
+        0 12px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        var(--card);
+
+      color: #dbe4ee;
+
+      border-radius: 10px;
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+    }
+
+
+    .icon-btn {
+
+      width: 38px;
+      height: 38px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        var(--card);
+
+      color: #a9b8c9;
+
+      border-radius: 10px;
+
+    }
+
+
+    .profile {
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1f4c68,
+          #1aa997
+        );
+
+      display: grid;
+
+      place-items: center;
+
+      font-weight: 700;
+
+    }
+
+
+    /* =====================================================
+       CONTENT
+    ===================================================== */
+
+    .content {
+
+      padding: 30px;
+
+      max-width: 1600px;
+
+      margin: auto;
+
+    }
+
+
+    .page {
+
+      display: none;
+
+      animation:
+        fadeIn .25s ease;
+
+    }
+
+
+    .page.active {
+
+      display: block;
+
+    }
+
+
+    @keyframes fadeIn {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(5px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+
+    .section-head {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 22px;
+
+    }
+
+
+    .section-head h1 {
+
+      font-size: 27px;
+
+      margin-bottom: 5px;
+
+    }
+
+
+    .section-head p {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+
+      min-height: 310px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.15fr .85fr;
+
+      overflow: hidden;
+
+      border-radius: 24px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(8,22,38,.98),
+          rgba(8,22,38,.82),
+          rgba(8,22,38,.25)
+        ),
+
+        url(
+          "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=85"
+        );
+
+      background-size: cover;
+
+      background-position: center;
+
+      margin-bottom: 22px;
+
+      box-shadow: var(--shadow);
+
+    }
+
+
+    body:not(.en) .hero {
+
+      background:
+
+        linear-gradient(
+          -90deg,
+          rgba(8,22,38,.98),
+          rgba(8,22,38,.82),
+          rgba(8,22,38,.25)
+        ),
+
+        url(
+          "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=85"
+        );
+
+      background-size: cover;
+
+      background-position: center;
+
+    }
+
+
+    .hero-content {
+
+      padding: 38px;
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-direction: column;
+
+    }
+
+
+    .hero-tag {
+
+      width: fit-content;
+
+      padding:
+        6px 10px;
+
+      border-radius: 20px;
+
+      background:
+        rgba(32,199,180,.1);
+
+      color: var(--primary);
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .hero h1 {
+
+      font-size: 38px;
+
+      line-height: 1.2;
+
+      margin-bottom: 12px;
+
+      max-width: 560px;
+
+    }
+
+
+    .hero p {
+
+      color: #b5c2d1;
+
+      line-height: 1.8;
+
+      font-size: 13px;
+
+      max-width: 550px;
+
+    }
+
+
+    .hero-actions {
+
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 22px;
+
+    }
+
+
+    .hero-visual {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 25px;
+
+    }
+
+
+    .school-card {
+
+      width: min(320px,90%);
+
+      background:
+        rgba(8,19,33,.84);
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
+      border-radius: 20px;
+
+      padding: 20px;
+
+      backdrop-filter:
+        blur(15px);
+
+      box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.3);
+
+    }
+
+
+    .school-image {
+
+      height: 125px;
+
+      border-radius: 13px;
+
+      overflow: hidden;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .school-image img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+    }
+
+
+    .school-card h3 {
+
+      margin-bottom: 5px;
+
+      font-size: 15px;
+
+    }
+
+
+    .school-card p {
+
+      font-size: 10px;
+
+      color: var(--muted);
+
+    }
+
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+
+    .btn {
+
+      border: 0;
+
+      border-radius: 10px;
+
+      padding:
+        10px 15px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      font-weight: 700;
+
+      font-size: 11px;
+
+      transition: .2s;
+
+    }
+
+
+    .btn-primary {
+
+      background:
+        var(--primary);
+
+      color: #03110f;
+
+    }
+
+
+    .btn-primary:hover {
+
+      background:
+        #29d8c4;
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    .btn-secondary {
+
+      background:
+        var(--card);
+
+      color: #d7e0eb;
+
+      border:
+        1px solid var(--border);
+
+    }
+
+
+    .btn-danger {
+
+      background:
+        rgba(240,91,103,.1);
+
+      color: #ff7b85;
+
+      border:
+        1px solid rgba(240,91,103,.2);
+
+    }
+
+
+    /* =====================================================
+       KPI
+    ===================================================== */
+
+    .kpis {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 15px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .kpi {
+
+      background:
+        var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      padding: 18px;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+    .kpi::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      right: -45px;
+      top: -45px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(32,199,180,.05);
+
+    }
+
+
+    .kpi-label {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+    }
+
+
+    .kpi-value {
+
+      font-size: 29px;
+
+      font-weight: 800;
+
+      margin-top: 7px;
+
+    }
+
+
+    .kpi-sub {
+
+      color: #657b92;
+
+      font-size: 9px;
+
+      margin-top: 5px;
+
+    }
+
+
+    /* =====================================================
+       CARDS
+    ===================================================== */
+
+    .grid-2 {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 20px;
+
+    }
+
+
+    .grid-3 {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 18px;
+
+    }
+
+
+    .card {
+
+      background:
+        var(--card);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      padding: 20px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .card-head {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 12px;
+
+      margin-bottom: 18px;
+
+    }
+
+
+    .card-head h3 {
+
+      font-size: 14px;
+
+    }
+
+
+    .card-head span {
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+    }
+
+
+    /* =====================================================
+       EMPTY
+    ===================================================== */
+
+    .empty {
+
+      text-align: center;
+
+      padding: 45px 20px;
+
+      color: var(--muted);
+
+    }
+
+
+    .empty-icon {
+
+      width: 55px;
+      height: 55px;
+
+      margin:
+        0 auto 13px;
+
+      border-radius: 16px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        rgba(255,255,255,.04);
+
+      font-size: 23px;
+
+    }
+
+
+    .empty h3 {
+
+      color: #dbe4ee;
+
+      margin-bottom: 6px;
+
+      font-size: 15px;
+
+    }
+
+
+    .empty p {
+
+      font-size: 11px;
+
+      line-height: 1.7;
+
+    }
+
+
+    /* =====================================================
+       IMAGE CARDS
+    ===================================================== */
+
+    .visual-card {
+
+      overflow: hidden;
+
+      padding: 0;
+
+    }
+
+
+    .visual-card-image {
+
+      height: 170px;
+
+      overflow: hidden;
+
+    }
+
+
+    .visual-card-image img {
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .4s ease;
+
+    }
+
+
+    .visual-card:hover img {
+
+      transform:
+        scale(1.04);
+
+    }
+
+
+    .visual-card-body {
+
+      padding: 18px;
+
+    }
+
+
+    .visual-card-body h3 {
+
+      font-size: 14px;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .visual-card-body p {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      line-height: 1.7;
+
+    }
+
+
+    /* =====================================================
+       TABLE
+    ===================================================== */
+
+    .table-wrap {
+
+      overflow-x: auto;
+
+    }
+
+
+    table {
+
+      width: 100%;
+
+      border-collapse:
+        collapse;
+
+      min-width: 650px;
+
+    }
+
+
+    th {
+
+      text-align: start;
+
+      color: #62778e;
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      padding: 11px;
+
+      border-bottom:
+        1px solid var(--border);
+
+    }
+
+
+    td {
+
+      padding: 13px 11px;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.045);
+
+      font-size: 11px;
+
+      color: #c4d0dd;
+
+    }
+
+
+    .table-empty {
+
+      text-align: center;
+
+      color: var(--muted);
+
+      padding: 35px;
+
+    }
+
+
+    /* =====================================================
+       BADGES
+    ===================================================== */
+
+    .badge {
+
+      display: inline-flex;
+
+      padding:
+        5px 8px;
+
+      border-radius: 7px;
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+    }
+
+
+    .badge-green {
+
+      background:
+        rgba(32,199,180,.1);
+
+      color:
+        var(--primary);
+
+    }
+
+
+    .badge-orange {
+
+      background:
+        rgba(245,167,66,.1);
+
+      color:
+        var(--orange);
+
+    }
+
+
+    .badge-red {
+
+      background:
+        rgba(240,91,103,.1);
+
+      color:
+        var(--red);
+
+    }
+
+
+    /* =====================================================
+       AUTOMATION
+    ===================================================== */
+
+    .automation-box {
+
+      border:
+        1px solid
+        rgba(32,199,180,.14);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(32,199,180,.07),
+          rgba(32,199,180,.015)
+        );
+
+      border-radius: 18px;
+
+      padding: 22px;
+
+    }
+
+
+    .automation-icon {
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 12px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        rgba(32,199,180,.1);
+
+      color:
+        var(--primary);
+
+      font-size: 20px;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .automation-box h3 {
+
+      margin-bottom: 7px;
+
+      font-size: 14px;
+
+    }
+
+
+    .automation-box p {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      line-height: 1.7;
+
+    }
+
+
+    .automation-list {
+
+      display: grid;
+
+      gap: 9px;
+
+      margin-top: 17px;
+
+    }
+
+
+    .automation-item {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      color: #bdc9d7;
+
+      font-size: 10px;
+
+    }
+
+
+    .check {
+
+      width: 20px;
+      height: 20px;
+
+      border-radius: 6px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        rgba(32,199,180,.1);
+
+      color:
+        var(--primary);
+
+      font-size: 10px;
+
+    }
+
+
+    /* =====================================================
+       ATTENTION
+    ===================================================== */
+
+    .attention-score {
+
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        rgba(240,91,103,.08);
+
+      color:
+        #ff737d;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+    }
+
+
+    .attention-layout {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 20px;
+
+    }
+
+
+    .attention-info {
+
+      padding: 20px;
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(240,91,103,.08),
+          rgba(245,167,66,.03)
+        );
+
+      border:
+        1px solid
+        rgba(240,91,103,.1);
+
+    }
+
+
+    .attention-info h3 {
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .attention-info p {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      line-height: 1.8;
+
+    }
+
+
+    /* =====================================================
+       PROGRESS
+    ===================================================== */
+
+    .progress-row {
+
+      margin-bottom: 16px;
+
+    }
+
+
+    .progress-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 10px;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .progress-top span:last-child {
+
+      color: var(--muted);
+
+    }
+
+
+    .progress {
+
+      height: 6px;
+
+      background:
+        #172638;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+    }
+
+
+    .progress-fill {
+
+      height: 100%;
+
+      border-radius: 20px;
+
+      background:
+        var(--primary);
+
+      width: 0;
+
+    }
+
+
+    /* =====================================================
+       MODAL
+    ===================================================== */
+
+    .modal {
+
+      position: fixed;
+
+      inset: 0;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+
+      background:
+        rgba(0,0,0,.7);
+
+      z-index: 500;
+
+      backdrop-filter:
+        blur(8px);
+
+    }
+
+
+    .modal.show {
+
+      display: flex;
+
+    }
+
+
+    .modal-box {
+
+      width:
+        min(500px,100%);
+
+      max-height:
+        90vh;
+
+      overflow-y: auto;
+
+      background:
+        #0c1a2b;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 22px;
+
+      box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.5);
+
+    }
+
+
+    .modal-head {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .modal-head h2 {
+
+      font-size: 17px;
+
+    }
+
+
+    .close {
+
+      border: 0;
+
+      background: transparent;
+
+      color: var(--muted);
+
+      font-size: 22px;
+
+    }
+
+
+    .form-grid {
+
+      display: grid;
+
+      gap: 13px;
+
+    }
+
+
+    .field label {
+
+      display: block;
+
+      color: #8da0b6;
+
+      font-size: 10px;
+
+      margin-bottom: 6px;
+
+    }
+
+
+    .field input,
+    .field select,
+    .field textarea {
+
+      width: 100%;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        #091626;
+
+      color: white;
+
+      padding:
+        11px 12px;
+
+      border-radius: 9px;
+
+      outline: none;
+
+    }
+
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+
+      border-color:
+        rgba(32,199,180,.5);
+
+    }
+
+
+    .modal-actions {
+
+      display: flex;
+
+      justify-content: flex-end;
+
+      gap: 8px;
+
+      margin-top: 18px;
+
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    .toast {
+
+      position: fixed;
+
+      right: 25px;
+
+      bottom: 25px;
+
+      background:
+        #112238;
+
+      border:
+        1px solid var(--border);
+
+      padding:
+        13px 17px;
+
+      border-radius: 11px;
+
+      font-size: 11px;
+
+      transform:
+        translateY(100px);
+
+      opacity: 0;
+
+      transition: .3s;
+
+      z-index: 1000;
+
+    }
+
+
+    body.en .toast {
+
+      right: auto;
+
+      left: 25px;
+
+    }
+
+
+    .toast.show {
+
+      transform:
+        translateY(0);
+
+      opacity: 1;
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media(max-width:1100px) {
+
+      .kpis {
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+      }
+
+
+      .hero {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .hero-visual {
+
+        display: none;
+
+      }
+
+
+      .grid-3 {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+    }
+
+
+    @media(max-width:850px) {
+
+      .sidebar {
+
+        right: -270px;
+
+        transition: .25s;
+
+      }
+
+
+      body.en .sidebar {
+
+        left: -270px;
+
+        right: auto;
+
+      }
+
+
+      .sidebar.open {
+
+        right: 0;
+
+      }
+
+
+      body.en .sidebar.open {
+
+        left: 0;
+
+        right: auto;
+
+      }
+
+
+      .main {
+
+        margin-right: 0;
+
+        width: 100%;
+
+      }
+
+
+      body.en .main {
+
+        margin-left: 0;
+
+      }
+
+
+      .mobile-menu {
+
+        display: block;
+
+      }
+
+
+      .search {
+
+        display: none;
+
+      }
+
+
+      .topbar {
+
+        padding:
+          0 17px;
+
+      }
+
+
+      .content {
+
+        padding:
+          20px 15px;
+
+      }
+
+
+      .grid-2,
+      .attention-layout {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+    }
+
+
+    @media(max-width:600px) {
+
+      .kpis,
+      .grid-3 {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .hero-content {
+
+        padding:
+          27px 22px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size: 29px;
+
+      }
+
+
+      .section-head {
+
+        align-items:
+          flex-start;
+
+        flex-direction:
+          column;
+
+      }
+
+
+      .section-head h1 {
+
+        font-size: 23px;
+
+      }
+
+
+      .hero-actions {
+
+        flex-direction:
+          column;
+
+      }
+
+
+      .hero-actions .btn {
+
+        width: 100%;
+
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        أ
+      </div>
+
+      <div class="brand-text">
+
+        <strong>
+          <span
+            data-ar="أثر"
+            data-en="ATHAR"
+          >
+            أثر
+          </span>
+        </strong>
+
+        <span
+          data-ar="نظام إدارة المدرسة الذكي"
+          data-en="Smart School Operations"
+        >
+          نظام إدارة المدرسة الذكي
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="nav-title"
+      data-ar="مساحة العمل"
+      data-en="Workspace"
+    >
+      مساحة العمل
+    </div>
+
+
+    <nav class="nav">
+
+      <button
+        class="active"
+        data-page="dashboard"
+      >
+
+        <span class="nav-icon">⌂</span>
+
+        <span
+          data-ar="الرئيسية"
+          data-en="Dashboard"
+        >
+          الرئيسية
+        </span>
+
+      </button>
+
+
+      <button data-page="analytics">
+
+        <span class="nav-icon">◩</span>
+
+        <span
+          data-ar="التحليلات"
+          data-en="Analytics"
+        >
+          التحليلات
+        </span>
+
+      </button>
+
+
+      <button data-page="attention">
+
+        <span class="nav-icon">!</span>
+
+        <span
+          data-ar="Attention"
+          data-en="Attention"
+        >
+          Attention
+        </span>
+
+      </button>
+
+
+      <button data-page="automation">
+
+        <span class="nav-icon">✦</span>
+
+        <span
+          data-ar="AI Automation"
+          data-en="AI Automation"
+        >
+          AI Automation
+        </span>
+
+      </button>
+
+
+      <div
+        class="nav-title"
+        data-ar="المدرسة"
+        data-en="School"
+      >
+        المدرسة
+      </div>
+
+
+      <button data-page="students">
+
+        <span class="nav-icon">♙</span>
+
+        <span
+          data-ar="الطلاب"
+          data-en="Students"
+        >
+          الطلاب
+        </span>
+
+      </button>
+
+
+      <button data-page="teachers">
+
+        <span class="nav-icon">♧</span>
+
+        <span
+          data-ar="المعلمين"
+          data-en="Teachers"
+        >
+          المعلمين
+        </span>
+
+      </button>
+
+
+      <button data-page="classes">
+
+        <span class="nav-icon">▦</span>
+
+        <span
+          data-ar="الفصول"
+          data-en="Classes"
+        >
+          الفصول
+        </span>
+
+      </button>
+
+
+      <button data-page="schedule">
+
+        <span class="nav-icon">◷</span>
+
+        <span
+          data-ar="الجدول"
+          data-en="Schedule"
+        >
+          الجدول
+        </span>
+
+      </button>
+
+
+      <button data-page="resources">
+
+        <span class="nav-icon">▤</span>
+
+        <span
+          data-ar="الموارد"
+          data-en="Resources"
+        >
+          الموارد
+        </span>
+
+      </button>
+
+
+      <button data-page="alerts">
+
+        <span class="nav-icon">♢</span>
+
+        <span
+          data-ar="التنبيهات"
+          data-en="Alerts"
+        >
+          التنبيهات
+        </span>
+
+      </button>
+
+
+      <div
+        class="nav-title"
+        data-ar="النظام"
+        data-en="System"
+      >
+        النظام
+      </div>
+
+
+      <button data-page="settings">
+
+        <span class="nav-icon">⚙</span>
+
+        <span
+          data-ar="الإعدادات"
+          data-en="Settings"
+        >
+          الإعدادات
+        </span>
+
+      </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="system-card">
+
+        <div
+          class="system-card-title"
+          data-ar="حالة النظام"
+          data-en="System Status"
+        >
+          حالة النظام
+        </div>
+
+        <div class="system-status">
+
+          <span class="status-dot"></span>
+
+          <span
+            data-ar="أثر جاهز للعمل"
+            data-en="ATHAR is ready"
+          >
+            أثر جاهز للعمل
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main class="main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+      <div class="top-left">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+        >
+          ☰
+        </button>
+
+
+        <div
+          class="page-title"
+          id="pageTitle"
+        >
+          الرئيسية
+        </div>
+
+      </div>
+
+
+      <div class="top-actions">
+
+
+        <div class="search">
+
+          <span>⌕</span>
+
+          <input
+            id="globalSearch"
+            type="search"
+            data-placeholder-ar="ابحث..."
+            data-placeholder-en="Search..."
+            placeholder="ابحث..."
+          >
+
+        </div>
+
+
+        <button
+          class="lang-btn"
+          id="languageBtn"
+        >
+          English
+        </button>
+
+
+        <button
+          class="icon-btn"
+          onclick="showToast(t('noNotifications'))"
+        >
+          ♢
+        </button>
+
+
+        <div class="profile">
+          أ
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <div class="content">
+
+
+      <!-- =================================================
+           DASHBOARD
+      ================================================== -->
+
+      <section
+        class="page active"
+        id="dashboard"
+      >
+
+
+        <div class="hero">
+
+
+          <div class="hero-content">
+
+
+            <div class="hero-tag">
+
+              <span
+                data-ar="منصة إدارة المدرسة الذكية"
+                data-en="SMART SCHOOL OPERATIONS"
+              >
+                منصة إدارة المدرسة الذكية
+              </span>
+
+            </div>
+
+
+            <h1>
+
+              <span
+                data-ar="اصنع مدرسة أكثر ذكاءً مع أثر."
+                data-en="Build a smarter school with ATHAR."
+              >
+                اصنع مدرسة أكثر ذكاءً مع أثر.
+              </span>
+
+            </h1>
+
+
+            <p>
+
+              <span
+                data-ar="منصة حديثة لإدارة الطلاب والمعلمين والفصول والجداول والموارد والتحليلات في مساحة عمل واحدة منظمة."
+                data-en="A modern platform for managing students, teachers, classes, schedules, resources and school insights in one organized workspace."
+              >
+                منصة حديثة لإدارة الطلاب والمعلمين والفصول والجداول والموارد والتحليلات في مساحة عمل واحدة منظمة.
+              </span>
+
+            </p>
+
+
+            <div class="hero-actions">
+
+
+              <button
+                class="btn btn-primary"
+                onclick="openModal('studentModal')"
+              >
+
+                + 
+
+                <span
+                  data-ar="إضافة طالب"
+                  data-en="Add Student"
+                >
+                  إضافة طالب
+                </span>
+
+              </button>
+
+
+              <button
+                class="btn btn-secondary"
+                onclick="runAutomation()"
+              >
+
+                ✦
+
+                <span
+                  data-ar="تشغيل الأتمتة"
+                  data-en="Run Automation"
+                >
+                  تشغيل الأتمتة
+                </span>
+
+              </button>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="hero-visual">
+
+
+            <div class="school-card">
+
+
+              <div class="school-image">
+
+                <img
+                  src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=85"
+                  alt="Modern school"
+                >
+
+              </div>
+
+
+              <h3>
+
+                <span
+                  data-ar="مساحة مدرستك"
+                  data-en="Your School Workspace"
+                >
+                  مساحة مدرستك
+                </span>
+
+              </h3>
+
+
+              <p>
+
+                <span
+                  data-ar="أضف بيانات مدرستك الحقيقية ودع أثر ينظمها."
+                  data-en="Add your real school data and let ATHAR organize it."
+                >
+                  أضف بيانات مدرستك الحقيقية ودع أثر ينظمها.
+                </span>
+
+              </p>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- KPI -->
+
+        <div class="kpis">
+
+
+          <div class="kpi">
+
+            <div
+              class="kpi-label"
+              data-ar="الطلاب"
+              data-en="Students"
+            >
+              الطلاب
+            </div>
+
+            <div
+              class="kpi-value"
+              id="studentsCount"
+            >
+              0
+            </div>
+
+            <div
+              class="kpi-sub"
+              data-ar="تمت إضافتهم بواسطتك"
+              data-en="Added by you"
+            >
+              تمت إضافتهم بواسطتك
+            </div>
+
+          </div>
+
+
+          <div class="kpi">
+
+            <div
+              class="kpi-label"
+              data-ar="المعلمين"
+              data-en="Teachers"
+            >
+              المعلمين
+            </div>
+
+            <div
+              class="kpi-value"
+              id="teachersCount"
+            >
+              0
+            </div>
+
+            <div
+              class="kpi-sub"
+              data-ar="تمت إضافتهم بواسطتك"
+              data-en="Added by you"
+            >
+              تمت إضافتهم بواسطتك
+            </div>
+
+          </div>
+
+
+          <div class="kpi">
+
+            <div
+              class="kpi-label"
+              data-ar="الفصول"
+              data-en="Classes"
+            >
+              الفصول
+            </div>
+
+            <div
+              class="kpi-value"
+              id="classesCount"
+            >
+              0
+            </div>
+
+            <div
+              class="kpi-sub"
+              data-ar="فصول المدرسة"
+              data-en="School classes"
+            >
+              فصول المدرسة
+            </div>
+
+          </div>
+
+
+          <div class="kpi">
+
+            <div
+              class="kpi-label"
+              data-ar="حالات Attention"
+              data-en="Attention Cases"
+            >
+              حالات Attention
+            </div>
+
+            <div
+              class="kpi-value"
+              id="attentionCount"
+            >
+              0
+            </div>
+
+            <div
+              class="kpi-sub"
+              data-ar="تحتاج متابعة"
+              data-en="Need follow-up"
+            >
+              تحتاج متابعة
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="grid-2">
+
+
+          <!-- Overview -->
+
+          <div class="card">
+
+
+            <div class="card-head">
+
+              <div>
+
+                <h3
+                  data-ar="نظرة عامة"
+                  data-en="School Overview"
+                >
+                  نظرة عامة
+                </h3>
+
+                <span
+                  data-ar="بناءً على البيانات التي تضيفها"
+                  data-en="Based on the data you add"
+                >
+                  بناءً على البيانات التي تضيفها
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div id="overviewEmpty">
+
+
+              <div class="empty">
+
+                <div class="empty-icon">
+                  ◫
+                </div>
+
+                <h3
+                  data-ar="لا توجد بيانات بعد"
+                  data-en="No school data yet"
+                >
+                  لا توجد بيانات بعد
+                </h3>
+
+                <p
+                  data-ar="أضف الطلاب وبيانات الحضور والأداء والواجبات لإنشاء التحليلات."
+                  data-en="Add students and their attendance, performance and assignments to generate insights."
+                >
+                  أضف الطلاب وبيانات الحضور والأداء والواجبات لإنشاء التحليلات.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="overviewStats"
+              style="display:none"
+            >
+
+
+              <div class="progress-row">
+
+                <div class="progress-top">
+
+                  <span
+                    data-ar="متوسط الحضور"
+                    data-en="Average Attendance"
+                  >
+                    متوسط الحضور
+                  </span>
+
+                  <span id="avgAttendance">
+                    0%
+                  </span>
+
+                </div>
+
+
+                <div class="progress">
+
+                  <div
+                    class="progress-fill"
+                    id="attendanceProgress"
+                  ></div>
+
+                </div>
+
+              </div>
+
+
+              <div class="progress-row">
+
+                <div class="progress-top">
+
+                  <span
+                    data-ar="متوسط الأداء"
+                    data-en="Average Performance"
+                  >
+                    متوسط الأداء
+                  </span>
+
+                  <span id="avgPerformance">
+                    0%
+                  </span>
+
+                </div>
+
+
+                <div class="progress">
+
+                  <div
+                    class="progress-fill"
+                    id="performanceProgress"
+                  ></div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+          <!-- Students Image -->
+
+          <div class="card visual-card">
+
+
+            <div class="visual-card-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85"
+                alt="Students learning"
+              >
+
+            </div>
+
+
+            <div class="visual-card-body">
+
+              <h3
+                data-ar="بيئة تعلم الطلاب"
+                data-en="Student Learning Environment"
+              >
+                بيئة تعلم الطلاب
+              </h3>
+
+              <p
+                data-ar="يحافظ أثر على تنظيم معلومات الطلاب حتى تتمكن من التركيز على تحسين تجربة التعلم."
+                data-en="ATHAR keeps your student information organized so you can focus on improving the learning experience."
+              >
+                يحافظ أثر على تنظيم معلومات الطلاب حتى تتمكن من التركيز على تحسين تجربة التعلم.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- Smart Modules -->
+
+        <div class="card">
+
+
+          <div class="card-head">
+
+            <div>
+
+              <h3
+                data-ar="إدارة المدرسة"
+                data-en="School Management"
+              >
+                إدارة المدرسة
+              </h3>
+
+              <span
+                data-ar="الوحدات الأساسية في أثر"
+                data-en="Core ATHAR modules"
+              >
+                الوحدات الأساسية في أثر
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="grid-3">
+
+
+            <div class="automation-box">
+
+
+              <div class="automation-icon">
+                ✦
+              </div>
+
+
+              <h3>
+                AI Automation
+              </h3>
+
+
+              <p
+                data-ar="اكتشاف تعارضات الجداول وتحليل المشكلات وإنشاء إجراءات ذكية بناءً على بيانات المدرسة."
+                data-en="Detect schedule conflicts, identify problems and generate smart actions from your school data."
+              >
+                اكتشاف تعارضات الجداول وتحليل المشكلات وإنشاء إجراءات ذكية بناءً على بيانات المدرسة.
+              </p>
+
+
+            </div>
+
+
+            <div class="automation-box">
+
+
+              <div class="automation-icon">
+                !
+              </div>
+
+
+              <h3>
+                Attention
+              </h3>
+
+
+              <p
+                data-ar="اكتشاف الطلاب الذين قد يحتاجون إلى متابعة بناءً على مؤشرات الحضور والأداء والواجبات."
+                data-en="Find students who may need follow-up using attendance, performance and assignment indicators."
+              >
+                اكتشاف الطلاب الذين قد يحتاجون إلى متابعة بناءً على مؤشرات الحضور والأداء والواجبات.
+              </p>
+
+
+            </div>
+
+
+            <div class="automation-box">
+
+
+              <div class="automation-icon">
+                ◩
+              </div>
+
+
+              <h3
+                data-ar="التحليلات"
+                data-en="Analytics"
+              >
+                التحليلات
+              </h3>
+
+
+              <p
+                data-ar="تحويل المعلومات التي تدخلها إلى مؤشرات وإحصائيات واضحة."
+                data-en="Turn the information you enter into clear school-level insights and statistics."
+              >
+                تحويل المعلومات التي تدخلها إلى مؤشرات وإحصائيات واضحة.
+              </p>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           ANALYTICS
+      ================================================== -->
+
+      <section
+        class="page"
+        id="analytics"
+      >
+
+
+        <div class="section-head">
+
+          <div>
+
+            <h1
+              data-ar="التحليلات"
+              data-en="Analytics"
+            >
+              التحليلات
+            </h1>
+
+            <p
+              data-ar="افهم بيانات مدرستك بشكل أفضل."
+              data-en="Understand your school data."
+            >
+              افهم بيانات مدرستك بشكل أفضل.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="grid-2">
+
+
+          <div class="card">
+
+            <div class="card-head">
+
+              <h3
+                data-ar="الحضور"
+                data-en="Attendance"
+              >
+                الحضور
+              </h3>
+
+              <span id="analyticsAttendance">
+                0%
+              </span>
+
+            </div>
+
+
+            <div class="progress-row">
+
+              <div class="progress-top">
+
+                <span
+                  data-ar="متوسط الحضور"
+                  data-en="Average attendance"
+                >
+                  متوسط الحضور
+                </span>
+
+                <span id="analyticsAttendance2">
+                  0%
+                </span>
+
+              </div>
+
+
+              <div class="progress">
+
+                <div
+                  class="progress-fill"
+                  id="analyticsAttendanceBar"
+                ></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-head">
+
+              <h3
+                data-ar="الأداء"
+                data-en="Performance"
+              >
+                الأداء
+              </h3>
+
+              <span id="analyticsPerformance">
+                0%
+              </span>
+
+            </div>
+
+
+            <div class="progress-row">
+
+              <div class="progress-top">
+
+                <span
+                  data-ar="متوسط الأداء"
+                  data-en="Average performance"
+                >
+                  متوسط الأداء
+                </span>
+
+                <span id="analyticsPerformance2">
+                  0%
+                </span>
+
+              </div>
+
+
+              <div class="progress">
+
+                <div
+                  class="progress-fill"
+                  id="analyticsPerformanceBar"
+                ></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="card visual-card">
+
+
+          <div class="visual-card-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85"
+              alt="Data analytics"
+            >
+
+          </div>
+
+
+          <div class="visual-card-body">
+
+            <h3
+              data-ar="إدارة المدرسة بالبيانات"
+              data-en="Data-driven School Management"
+            >
+              إدارة المدرسة بالبيانات
+            </h3>
+
+            <p
+              data-ar="أضف بيانات مدرستك الحقيقية وسيقوم أثر بحساب المؤشرات المهمة تلقائيًا."
+              data-en="Add your actual school information and ATHAR will calculate meaningful indicators automatically."
+            >
+              أضف بيانات مدرستك الحقيقية وسيقوم أثر بحساب المؤشرات المهمة تلقائيًا.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="card">
+
+
+          <div class="card-head">
+
+            <h3
+              data-ar="الرؤى الذكية"
+              data-en="Smart Insights"
+            >
+              الرؤى الذكية
+            </h3>
+
+          </div>
+
+
+          <div id="analyticsInsights"></div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           ATTENTION
+      ================================================== -->
+
+      <section
+        class="page"
+        id="attention"
+      >
+
+
+        <div class="section-head">
+
+          <div>
+
+            <h1>
+              Attention
+            </h1>
+
+            <p
+              data-ar="مؤشرات مبكرة للطلاب الذين قد يحتاجون إلى متابعة."
+              data-en="Early-warning indicators for students who may need follow-up."
+            >
+              مؤشرات مبكرة للطلاب الذين قد يحتاجون إلى متابعة.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="attention-layout">
+
+
+          <div class="attention-info">
+
+
+            <div class="automation-icon">
+              !
+            </div>
+
+
+            <h3
+              data-ar="نظام متابعة الطلاب"
+              data-en="Student Attention System"
+            >
+              نظام متابعة الطلاب
+            </h3>
+
+
+            <p
+              data-ar="يحلل أثر بيانات الحضور والأداء وإكمال الواجبات لتحديد المؤشرات التي قد تحتاج إلى مراجعة بشرية. النظام لا يتخذ قرارًا نهائيًا عن الطالب."
+              data-en="ATHAR analyzes attendance, performance and assignment completion to highlight indicators that may require human review. It does not make a final decision about a student."
+            >
+              يحلل أثر بيانات الحضور والأداء وإكمال الواجبات لتحديد المؤشرات التي قد تحتاج إلى مراجعة بشرية. النظام لا يتخذ قرارًا نهائيًا عن الطالب.
+            </p>
+
+
+          </div>
+
+
+          <div
+            class="card"
+            style="margin:0"
+          >
+
+
+            <div class="card-head">
+
+              <h3
+                data-ar="الحالات الحالية"
+                data-en="Current Cases"
+              >
+                الحالات الحالية
+              </h3>
+
+              <span id="attentionSummary">
+                0
+              </span>
+
+            </div>
+
+
+            <div id="attentionSummaryBox"></div>
+
+
+          </div>
+
+
+        </div>
+
+
+        <div class="card" style="margin-top:20px">
+
+
+          <div class="card-head">
+
+            <h3
+              data-ar="الطلاب الذين يحتاجون إلى متابعة"
+              data-en="Students Requiring Attention"
+            >
+              الطلاب الذين يحتاجون إلى متابعة
+            </h3>
+
+          </div>
+
+
+          <div class="table-wrap">
+
+
+            <table>
+
+
+              <thead>
+
+                <tr>
+
+                  <th
+                    data-ar="الطالب"
+                    data-en="Student"
+                  >
+                    الطالب
+                  </th>
+
+                  <th
+                    data-ar="الدرجة"
+                    data-en="Attention Score"
+                  >
+                    الدرجة
+                  </th>
+
+                  <th
+                    data-ar="المستوى"
+                    data-en="Level"
+                  >
+                    المستوى
+                  </th>
+
+                  <th
+                    data-ar="المؤشرات"
+                    data-en="Indicators"
+                  >
+                    المؤشرات
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody
+                id="attentionTable"
+              ></tbody>
+
+
+            </table>
+
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           AUTOMATION
+      ================================================== -->
+
+      <section
+        class="page"
+        id="automation"
+      >
+
+
+        <div class="section-head">
+
+
+          <div>
+
+            <h1>
+              AI Automation
+            </h1>
+
+            <p
+              data-ar="قواعد ذكية لتحليل بيانات المدرسة."
+              data-en="Smart rules that analyze your school information."
+            >
+              قواعد ذكية لتحليل بيانات المدرسة.
+            </p>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            onclick="runAutomation()"
+          >
+
+            ✦
+
+            <span
+              data-ar="تشغيل الأتمتة"
+              data-en="Run Automation"
+            >
+              تشغيل الأتمتة
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+        <div class="grid-3">
+
+
+          <div class="card automation-box">
+
+            <div class="automation-icon">
+              ◷
+            </div>
+
+            <h3
+              data-ar="اكتشاف تعارض الجدول"
+              data-en="Schedule Detection"
+            >
+              اكتشاف تعارض الجدول
+            </h3>
+
+            <p
+              data-ar="اكتشاف التعارضات بين المعلمين والغرف والحصص في نفس الوقت."
+              data-en="Detect conflicts between teachers, rooms and scheduled classes."
+            >
+              اكتشاف التعارضات بين المعلمين والغرف والحصص في نفس الوقت.
+            </p>
+
+          </div>
+
+
+          <div class="card automation-box">
+
+            <div class="automation-icon">
+              !
+            </div>
+
+            <h3
+              data-ar="اكتشاف Attention"
+              data-en="Attention Detection"
+            >
+              اكتشاف Attention
+            </h3>
+
+            <p
+              data-ar="تحديد الطلاب الذين لديهم مؤشرات تستدعي المتابعة."
+              data-en="Find students with indicators that may require human follow-up."
+            >
+              تحديد الطلاب الذين لديهم مؤشرات تستدعي المتابعة.
+            </p>
+
+          </div>
+
+
+          <div class="card automation-box">
+
+            <div class="automation-icon">
+              ♢
+            </div>
+
+            <h3
+              data-ar="التنبيهات الذكية"
+              data-en="Smart Alerts"
+            >
+              التنبيهات الذكية
+            </h3>
+
+            <p
+              data-ar="تحويل المشكلات المكتشفة إلى تنبيهات واضحة للإدارة."
+              data-en="Convert detected issues into clear alerts for the administrator."
+            >
+              تحويل المشكلات المكتشفة إلى تنبيهات واضحة للإدارة.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="card">
+
+
+          <div class="card-head">
+
+            <div>
+
+              <h3
+                data-ar="سجل الأتمتة"
+                data-en="Automation Log"
+              >
+                سجل الأتمتة
+              </h3>
+
+              <span id="automationStatus">
+                <span
+                  data-ar="في انتظار التشغيل"
+                  data-en="Waiting for execution"
+                >
+                  في انتظار التشغيل
+                </span>
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div id="automationLog"></div>
+
+
+        </div>
+
+
+        <div class="card visual-card">
+
+
+          <div class="visual-card-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85"
+              alt="Technology teamwork"
+            >
+
+          </div>
+
+
+          <div class="visual-card-body">
+
+            <h3
+              data-ar="إدارة مدرسة أكثر ذكاءً"
+              data-en="Smarter School Operations"
+            >
+              إدارة مدرسة أكثر ذكاءً
+            </h3>
+
+            <p
+              data-ar="الأتمتة تقلل الأعمال المتكررة مع إبقاء القرارات المهمة تحت التحكم البشري."
+              data-en="Automation reduces repetitive work while keeping important decisions under human control."
+            >
+              الأتمتة تقلل الأعمال المتكررة مع إبقاء القرارات المهمة تحت التحكم البشري.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           STUDENTS
+      ================================================== -->
+
+      <section
+        class="page"
+        id="students"
+      >
+
+
+        <div class="section-head">
+
+          <div>
+
+            <h1
+              data-ar="الطلاب"
+              data-en="Students"
+            >
+              الطلاب
+            </h1>
+
+            <p
+              data-ar="إدارة بيانات الطلاب."
+              data-en="Manage your student records."
+            >
+              إدارة بيانات الطلاب.
+            </p>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('studentModal')"
+          >
+
+            +
+
+            <span
+              data-ar="إضافة طالب"
+              data-en="Add Student"
+            >
+              إضافة طالب
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <div class="card">
+
+
+          <div class="table-wrap">
+
+
+            <table>
+
+
+              <thead>
+
+                <tr>
+
+                  <th
+                    data-ar="الاسم"
+                    data-en="Name"
+                  >
+                    الاسم
+                  </th>
+
+                  <th>ID</th>
+
+                  <th
+                    data-ar="الفصل"
+                    data-en="Class"
+                  >
+                    الفصل
+                  </th>
+
+                  <th
+                    data-ar="الحضور"
+                    data-en="Attendance"
+                  >
+                    الحضور
+                  </th>
+
+                  <th
+                    data-ar="الأداء"
+                    data-en="Performance"
+                  >
+                    الأداء
+                  </th>
+
+                  <th
+                    data-ar="الواجبات"
+                    data-en="Assignments"
+                  >
+                    الواجبات
+                  </th>
+
+                  <th></th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody
+                id="studentsTable"
+              ></tbody>
+
+
+            </table>
+
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           TEACHERS
+      ================================================== -->
+
+      <section
+        class="page"
+        id="teachers"
+      >
+
+
+        <div class="section-head">
+
+          <div>
+
+            <h1
+              data-ar="المعلمين"
+              data-en="Teachers"
+            >
+              المعلمين
+            </h1>
+
+            <p
+              data-ar="إدارة بيانات المعلمين."
+              data-en="Manage your teaching staff."
+            >
+              إدارة بيانات المعلمين.
+            </p>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('teacherModal')"
+          >
+
+            +
+
+            <span
+              data-ar="إضافة معلم"
+              data-en="Add Teacher"
+            >
+              إضافة معلم
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+        <div class="card">
+
+
+          <div class="table-wrap">
+
+
+            <table>
+
+
+              <thead>
+
+                <tr>
+
+                  <th
+                    data-ar="الاسم"
+                    data-en="Name"
+                  >
+                    الاسم
+                  </th>
+
+                  <th
+                    data-ar="المادة"
+                    data-en="Subject"
+                  >
+                    المادة
+                  </th>
+
+                  <th
+                    data-ar="البريد الإلكتروني"
+                    data-en="Email"
+                  >
+                    البريد الإلكتروني
+                  </th>
+
+                  <th></th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody
+                id="teachersTable"
+              ></tbody>
+
+
+            </table>
+
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           CLASSES
+      ================================================== -->
+
+      <section
+        class="page"
+        id="classes"
+      >
+
+
+        <div class="section-head">
+
+          <div>
+
+            <h1
+              data-ar="الفصول"
+              data-en="Classes"
+            >
+              الفصول
+            </h1>
+
+            <p
+              data-ar="تنظيم فصول المدرسة."
+              data-en="Organize school classes."
+            >
+              تنظيم فصول المدرسة.
+            </p>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('classModal')"
+          >
+
+            +
+
+            <span
+              data-ar="إضافة فصل"
+              data-en="Add Class"
+            >
+              إضافة فصل
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+        <div
+          class="grid-3"
+          id="classesGrid"
+        ></div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           SCHEDULE
+      ================================================== -->
+
+      <section
+        class="page"
+        id="schedule"
+      >
+
+
+        <div class="section-head">
+
+
+          <div>
+
+            <h1
+              data-ar="الجدول"
+              data-en="Schedule"
+            >
+              الجدول
+            </h1>
+
+            <p
+              data-ar="إنشاء وإدارة جدول المدرسة."
+              data-en="Build and manage your school timetable."
+            >
+              إنشاء وإدارة جدول المدرسة.
+            </p>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('scheduleModal')"
+          >
+
+            +
+
+            <span
+              data-ar="إضافة حصة"
+              data-en="Add Schedule"
+            >
+              إضافة حصة
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+        <div class="card">
+
+
+          <div class="table-wrap">
+
+
+            <table>
+
+
+              <thead>
+
+                <tr>
+
+                  <th
+                    data-ar="اليوم"
+                    data-en="Day"
+                  >
+                    اليوم
+                  </th>
+
+                  <th
+                    data-ar="الوقت"
+                    data-en="Time"
+                  >
+                    الوقت
+                  </th>
+
+                  <th
+                    data-ar="المادة"
+                    data-en="Subject"
+                  >
+                    المادة
+                  </th>
+
+                  <th
+                    data-ar="المعلم"
+                    data-en="Teacher"
+                  >
+                    المعلم
+                  </th>
+
+                  <th
+                    data-ar="الغرفة"
+                    data-en="Room"
+                  >
+                    الغرفة
+                  </th>
+
+                  <th></th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody
+                id="scheduleTable"
+              ></tbody>
+
+
+            </table>
+
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           RESOURCES
+      ================================================== -->
+
+      <section
+        class="page"
+        id="resources"
+      >
+
+
+        <div class="section-head">
+
+
+          <div>
+
+            <h1
+              data-ar="الموارد"
+              data-en="Resources"
+            >
+              الموارد
+            </h1>
+
+            <p
+              data-ar="إدارة الغرف والأجهزة والموارد."
+              data-en="Manage rooms, devices and school resources."
+            >
+              إدارة الغرف والأجهزة والموارد.
+            </p>
+
+          </div>
+
+
+          <button
+            class="btn btn-primary"
+            onclick="openModal('resourceModal')"
+          >
+
+            +
+
+            <span
+              data-ar="إضافة مورد"
+              data-en="Add Resource"
+            >
+              إضافة مورد
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+        <div
+          class="grid-3"
+          id="resourcesGrid"
+        ></div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           ALERTS
+      ================================================== -->
+
+      <section
+        class="page"
+        id="alerts"
+      >
+
+
+        <div class="section-head">
+
+          <div>
+
+            <h1
+              data-ar="التنبيهات"
+              data-en="Alerts"
+            >
+              التنبيهات
+            </h1>
+
+            <p
+              data-ar="المشكلات التي اكتشفها أثر."
+              data-en="Issues detected by ATHAR."
+            >
+              المشكلات التي اكتشفها أثر.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <div
+            id="alertsList"
+          ></div>
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           SETTINGS
+      ================================================== -->
+
+      <section
+        class="page"
+        id="settings"
+      >
+
+
+        <div class="section-head">
+
+          <div>
+
+            <h1
+              data-ar="الإعدادات"
+              data-en="Settings"
+            >
+              الإعدادات
+            </h1>
+
+            <p
+              data-ar="تحكم في خصائص أثر."
+              data-en="Control ATHAR behavior."
+            >
+              تحكم في خصائص أثر.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+
+          <div class="card-head">
+
+            <h3
+              data-ar="خصائص النظام"
+              data-en="System Features"
+            >
+              خصائص النظام
+            </h3>
+
+          </div>
+
+
+          <div class="automation-item">
+
+            <div class="check">
+              ✓
+            </div>
+
+            <span
+              data-ar="AI Automation مفعلة"
+              data-en="AI Automation enabled"
+            >
+              AI Automation مفعلة
+            </span>
+
+          </div>
+
+
+          <div
+            class="automation-item"
+            style="margin-top:12px"
+          >
+
+            <div class="check">
+              ✓
+            </div>
+
+            <span
+              data-ar="Attention / Early Warning مفعلة"
+              data-en="Attention / Early Warning enabled"
+            >
+              Attention / Early Warning مفعلة
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="card">
+
+
+          <div class="card-head">
+
+            <div>
+
+              <h3
+                data-ar="إدارة البيانات"
+                data-en="Data Management"
+              >
+                إدارة البيانات
+              </h3>
+
+              <span
+                data-ar="يتم حفظ بياناتك محليًا في هذا المتصفح."
+                data-en="Your information is stored locally in this browser."
+              >
+                يتم حفظ بياناتك محليًا في هذا المتصفح.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="btn btn-danger"
+            onclick="clearAllData()"
+          >
+
+            <span
+              data-ar="مسح جميع البيانات"
+              data-en="Clear All Data"
+            >
+              مسح جميع البيانات
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+</div>
+
+
+<!-- =====================================================
+     STUDENT MODAL
+====================================================== -->
+
+<div
+  class="modal"
+  id="studentModal"
+>
+
+  <div class="modal-box">
+
+
+    <div class="modal-head">
+
+      <h2
+        data-ar="إضافة طالب"
+        data-en="Add Student"
+      >
+        إضافة طالب
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('studentModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form
+      class="form-grid"
+      onsubmit="addStudent(event)"
+    >
+
+
+      <div class="field">
+
+        <label
+          data-ar="اسم الطالب"
+          data-en="Student Name"
+        >
+          اسم الطالب
+        </label>
+
+        <input
+          id="studentName"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          ID
+        </label>
+
+        <input
+          id="studentId"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الفصل"
+          data-en="Class"
+        >
+          الفصل
+        </label>
+
+        <input
+          id="studentClass"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الحضور %"
+          data-en="Attendance %"
+        >
+          الحضور %
+        </label>
+
+        <input
+          id="studentAttendance"
+          type="number"
+          min="0"
+          max="100"
+          value="100"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الأداء %"
+          data-en="Performance %"
+        >
+          الأداء %
+        </label>
+
+        <input
+          id="studentPerformance"
+          type="number"
+          min="0"
+          max="100"
+          value="100"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="إكمال الواجبات %"
+          data-en="Assignment Completion %"
+        >
+          إكمال الواجبات %
+        </label>
+
+        <input
+          id="studentAssignments"
+          type="number"
+          min="0"
+          max="100"
+          value="100"
+        >
+
+      </div>
+
+
+      <div class="modal-actions">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="closeModal('studentModal')"
+        >
+
+          <span
+            data-ar="إلغاء"
+            data-en="Cancel"
+          >
+            إلغاء
+          </span>
+
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+
+          <span
+            data-ar="إضافة"
+            data-en="Add"
+          >
+            إضافة
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     TEACHER MODAL
+====================================================== -->
+
+<div
+  class="modal"
+  id="teacherModal"
+>
+
+  <div class="modal-box">
+
+
+    <div class="modal-head">
+
+      <h2
+        data-ar="إضافة معلم"
+        data-en="Add Teacher"
+      >
+        إضافة معلم
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('teacherModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form
+      class="form-grid"
+      onsubmit="addTeacher(event)"
+    >
+
+
+      <div class="field">
+
+        <label
+          data-ar="اسم المعلم"
+          data-en="Teacher Name"
+        >
+          اسم المعلم
+        </label>
+
+        <input
+          id="teacherName"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="المادة"
+          data-en="Subject"
+        >
+          المادة
+        </label>
+
+        <input
+          id="teacherSubject"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="البريد الإلكتروني"
+          data-en="Email"
+        >
+          البريد الإلكتروني
+        </label>
+
+        <input
+          id="teacherEmail"
+          type="email"
+        >
+
+      </div>
+
+
+      <div class="modal-actions">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="closeModal('teacherModal')"
+        >
+
+          <span
+            data-ar="إلغاء"
+            data-en="Cancel"
+          >
+            إلغاء
+          </span>
+
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+
+          <span
+            data-ar="إضافة"
+            data-en="Add"
+          >
+            إضافة
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     CLASS MODAL
+====================================================== -->
+
+<div
+  class="modal"
+  id="classModal"
+>
+
+  <div class="modal-box">
+
+
+    <div class="modal-head">
+
+      <h2
+        data-ar="إضافة فصل"
+        data-en="Add Class"
+      >
+        إضافة فصل
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('classModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form
+      class="form-grid"
+      onsubmit="addClass(event)"
+    >
+
+
+      <div class="field">
+
+        <label
+          data-ar="اسم الفصل"
+          data-en="Class Name"
+        >
+          اسم الفصل
+        </label>
+
+        <input
+          id="className"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الصف"
+          data-en="Grade"
+        >
+          الصف
+        </label>
+
+        <input
+          id="classGrade"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الغرفة"
+          data-en="Room"
+        >
+          الغرفة
+        </label>
+
+        <input
+          id="classRoom"
+        >
+
+      </div>
+
+
+      <div class="modal-actions">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="closeModal('classModal')"
+        >
+
+          <span
+            data-ar="إلغاء"
+            data-en="Cancel"
+          >
+            إلغاء
+          </span>
+
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+
+          <span
+            data-ar="إضافة"
+            data-en="Add"
+          >
+            إضافة
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     SCHEDULE MODAL
+====================================================== -->
+
+<div
+  class="modal"
+  id="scheduleModal"
+>
+
+  <div class="modal-box">
+
+
+    <div class="modal-head">
+
+      <h2
+        data-ar="إضافة حصة"
+        data-en="Add Schedule"
+      >
+        إضافة حصة
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('scheduleModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form
+      class="form-grid"
+      onsubmit="addSchedule(event)"
+    >
+
+
+      <div class="field">
+
+        <label
+          data-ar="اليوم"
+          data-en="Day"
+        >
+          اليوم
+        </label>
+
+
+        <select id="scheduleDay">
+
+          <option
+            value="Sunday"
+            data-ar="الأحد"
+            data-en="Sunday"
+          >
+            الأحد
+          </option>
+
+          <option
+            value="Monday"
+            data-ar="الاثنين"
+            data-en="Monday"
+          >
+            الاثنين
+          </option>
+
+          <option
+            value="Tuesday"
+            data-ar="الثلاثاء"
+            data-en="Tuesday"
+          >
+            الثلاثاء
+          </option>
+
+          <option
+            value="Wednesday"
+            data-ar="الأربعاء"
+            data-en="Wednesday"
+          >
+            الأربعاء
+          </option>
+
+          <option
+            value="Thursday"
+            data-ar="الخميس"
+            data-en="Thursday"
+          >
+            الخميس
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الوقت"
+          data-en="Time"
+        >
+          الوقت
+        </label>
+
+        <input
+          id="scheduleTime"
+          type="time"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="المادة"
+          data-en="Subject"
+        >
+          المادة
+        </label>
+
+        <input
+          id="scheduleSubject"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="المعلم"
+          data-en="Teacher"
+        >
+          المعلم
+        </label>
+
+        <input
+          id="scheduleTeacher"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الغرفة"
+          data-en="Room"
+        >
+          الغرفة
+        </label>
+
+        <input
+          id="scheduleRoom"
+        >
+
+      </div>
+
+
+      <div class="modal-actions">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="closeModal('scheduleModal')"
+        >
+
+          <span
+            data-ar="إلغاء"
+            data-en="Cancel"
+          >
+            إلغاء
+          </span>
+
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+
+          <span
+            data-ar="إضافة"
+            data-en="Add"
+          >
+            إضافة
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     RESOURCE MODAL
+====================================================== -->
+
+<div
+  class="modal"
+  id="resourceModal"
+>
+
+  <div class="modal-box">
+
+
+    <div class="modal-head">
+
+      <h2
+        data-ar="إضافة مورد"
+        data-en="Add Resource"
+      >
+        إضافة مورد
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('resourceModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form
+      class="form-grid"
+      onsubmit="addResource(event)"
+    >
+
+
+      <div class="field">
+
+        <label
+          data-ar="اسم المورد"
+          data-en="Resource Name"
+        >
+          اسم المورد
+        </label>
+
+        <input
+          id="resourceName"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="النوع"
+          data-en="Type"
+        >
+          النوع
+        </label>
+
+        <input
+          id="resourceType"
+          placeholder="Room, Device, Lab..."
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label
+          data-ar="الكمية"
+          data-en="Quantity"
+        >
+          الكمية
+        </label>
+
+        <input
+          id="resourceQuantity"
+          type="number"
+          min="1"
+          value="1"
+        >
+
+      </div>
+
+
+      <div class="modal-actions">
+
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="closeModal('resourceModal')"
+        >
+
+          <span
+            data-ar="إلغاء"
+            data-en="Cancel"
+          >
+            إلغاء
+          </span>
+
+        </button>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+
+          <span
+            data-ar="إضافة"
+            data-en="Add"
+          >
+            إضافة
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
+<script>
+
+  /* =====================================================
+     LANGUAGE
+  ===================================================== */
+
+  let currentLanguage =
+    localStorage.getItem(
+      "athar_language"
+    ) || "ar";
+
+
+  const translations = {
+
+    ar: {
+
+      noNotifications:
+        "لا توجد إشعارات جديدة",
+
+      noStudents:
+        "لا يوجد طلاب مضافون بعد.",
+
+      noTeachers:
+        "لا يوجد معلمون مضافون بعد.",
+
+      noClasses:
+        "لا توجد فصول مضافة بعد.",
+
+      noSchedule:
+        "لا يوجد جدول مضاف بعد.",
+
+      noResources:
+        "لا توجد موارد مضافة بعد.",
+
+      noAttention:
+        "لا توجد حالات Attention حاليًا.",
+
+      noAlerts:
+        "لا توجد تنبيهات.",
+
+      addStudentSuccess:
+        "تمت إضافة الطالب بنجاح",
+
+      addTeacherSuccess:
+        "تمت إضافة المعلم بنجاح",
+
+      addClassSuccess:
+        "تمت إضافة الفصل بنجاح",
+
+      addScheduleSuccess:
+        "تمت إضافة الحصة بنجاح",
+
+      addResourceSuccess:
+        "تمت إضافة المورد بنجاح",
+
+      deleted:
+        "تم حذف العنصر",
+
+      clearConfirm:
+        "هل أنت متأكد أنك تريد حذف جميع بيانات أثر؟",
+
+      cleared:
+        "تم مسح جميع البيانات",
+
+      automationDone:
+        "اكتملت الأتمتة",
+
+      cases:
+        "حالة",
+
+      studentsNeed:
+        "طلاب قد يحتاجون إلى متابعة",
+
+      waiting:
+        "في انتظار التشغيل"
+
+    },
+
+
+    en: {
+
+      noNotifications:
+        "No new notifications",
+
+      noStudents:
+        "No students added yet.",
+
+      noTeachers:
+        "No teachers added yet.",
+
+      noClasses:
+        "No classes added yet.",
+
+      noSchedule:
+        "No schedule entries yet.",
+
+      noResources:
+        "No resources added yet.",
+
+      noAttention:
+        "No attention cases currently.",
+
+      noAlerts:
+        "No alerts.",
+
+      addStudentSuccess:
+        "Student added successfully",
+
+      addTeacherSuccess:
+        "Teacher added successfully",
+
+      addClassSuccess:
+        "Class added successfully",
+
+      addScheduleSuccess:
+        "Schedule added successfully",
+
+      addResourceSuccess:
+        "Resource added successfully",
+
+      deleted:
+        "Item removed",
+
+      clearConfirm:
+        "Are you sure you want to delete all ATHAR data?",
+
+      cleared:
+        "All data cleared",
+
+      automationDone:
+        "Automation completed",
+
+      cases:
+        "case(s)",
+
+      studentsNeed:
+        "students may need follow-up",
+
+      waiting:
+        "Waiting for execution"
+
+    }
+
+  };
+
+
+  function t(key) {
+
+    return translations[
+      currentLanguage
+    ][key];
+
+  }
+
+
+  function applyLanguage() {
+
+    document.documentElement.lang =
+      currentLanguage;
+
+    document.documentElement.dir =
+      currentLanguage === "ar"
+        ? "rtl"
+        : "ltr";
+
+
+    document.body.classList.toggle(
+      "en",
+      currentLanguage === "en"
+    );
+
+
+    document
+      .querySelectorAll("[data-ar]")
+      .forEach(element => {
+
+        element.textContent =
+          element.dataset[
+            currentLanguage
+          ];
+
+      });
+
+
+    document
+      .querySelectorAll("[data-placeholder-ar]")
+      .forEach(input => {
+
+        input.placeholder =
+          input.dataset[
+            currentLanguage === "ar"
+              ? "placeholderAr"
+              : "placeholderEn"
+          ];
+
+      });
+
+
+    document
+      .querySelectorAll("input[data-placeholder-ar]")
+      .forEach(input => {
+
+        input.placeholder =
+          currentLanguage === "ar"
+            ? input.dataset.placeholderAr
+            : input.dataset.placeholderEn;
+
+      });
+
+
+    document.getElementById(
+      "languageBtn"
+    ).textContent =
+      currentLanguage === "ar"
+        ? "English"
+        : "العربية";
+
+
+    updatePageTitle();
+
+    renderAll();
+
+  }
+
+
+  document
+    .getElementById("languageBtn")
+    .addEventListener(
+      "click",
+      () => {
+
+        currentLanguage =
+          currentLanguage === "ar"
+            ? "en"
+            : "ar";
+
+        localStorage.setItem(
+          "athar_language",
+          currentLanguage
+        );
+
+        applyLanguage();
+
+      }
+    );
+
+
+  /* =====================================================
+     DATA
+  ===================================================== */
+
+  const STORAGE_KEY =
+    "athar_school_data_v4";
+
+
+  let data =
+    JSON.parse(
+      localStorage.getItem(
+        STORAGE_KEY
+      )
+    ) || {
+
+      students: [],
+      teachers: [],
+      classes: [],
+      schedule: [],
+      resources: [],
+      alerts: []
+
+    };
+
+
+  function saveData() {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(data)
+    );
+
+  }
+
+
+  /* =====================================================
+     NAVIGATION
+  ===================================================== */
+
+  const navButtons =
+    document.querySelectorAll(
+      ".nav button"
+    );
+
+
+  const pages =
+    document.querySelectorAll(
+      ".page"
+    );
+
+
+  const pageTitle =
+    document.getElementById(
+      "pageTitle"
+    );
+
+
+  function updatePageTitle() {
+
+    const active =
+      document.querySelector(
+        ".nav button.active"
+      );
+
+
+    if(!active) return;
+
+
+    const span =
+      active.querySelector(
+        "[data-ar]"
+      );
+
+
+    if(span) {
+
+      pageTitle.textContent =
+        span.dataset[
+          currentLanguage
+        ];
+
+    }
+
+  }
+
+
+  navButtons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const page =
+          button.dataset.page;
+
+
+        navButtons.forEach(btn =>
+          btn.classList.remove(
+            "active"
+          )
+        );
+
+
+        button.classList.add(
+          "active"
+        );
+
+
+        pages.forEach(p =>
+          p.classList.remove(
+            "active"
+          )
+        );
+
+
+        document
+          .getElementById(page)
+          .classList.add(
+            "active"
+          );
+
+
+        updatePageTitle();
+
+
+        document
+          .getElementById("sidebar")
+          .classList.remove(
+            "open"
+          );
+
+      }
+    );
+
+  });
+
+
+  /* =====================================================
+     MOBILE MENU
+  ===================================================== */
+
+  document
+    .getElementById("mobileMenu")
+    .addEventListener(
+      "click",
+      () => {
+
+        document
+          .getElementById("sidebar")
+          .classList.toggle(
+            "open"
+          );
+
+      }
+    );
+
+
+  /* =====================================================
+     MODALS
+  ===================================================== */
+
+  function openModal(id) {
+
+    document
+      .getElementById(id)
+      .classList.add("show");
+
+  }
+
+
+  function closeModal(id) {
+
+    document
+      .getElementById(id)
+      .classList.remove(
+        "show"
+      );
+
+  }
+
+
+  document
+    .querySelectorAll(".modal")
+    .forEach(modal => {
+
+      modal.addEventListener(
+        "click",
+        event => {
+
+          if(
+            event.target === modal
+          ) {
+
+            modal.classList.remove(
+              "show"
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+
+  /* =====================================================
+     TOAST
+  ===================================================== */
+
+  let toastTimer;
+
+
+  function showToast(message) {
+
+    const toast =
+      document.getElementById(
+        "toast"
+      );
+
+
+    toast.textContent =
+      message;
+
+
+    toast.classList.add(
+      "show"
+    );
+
+
+    clearTimeout(
+      toastTimer
+    );
+
+
+    toastTimer =
+      setTimeout(
+        () => {
+
+          toast.classList.remove(
+            "show"
+          );
+
+        },
+        2500
+      );
+
+  }
+
+
+  /* =====================================================
+     ADD STUDENT
+  ===================================================== */
+
+  function addStudent(event) {
+
+    event.preventDefault();
+
+
+    data.students.push({
+
+      id: Date.now(),
+
+      name:
+        document
+          .getElementById(
+            "studentName"
+          )
+          .value
+          .trim(),
+
+      studentId:
+        document
+          .getElementById(
+            "studentId"
+          )
+          .value
+          .trim(),
+
+      className:
+        document
+          .getElementById(
+            "studentClass"
+          )
+          .value
+          .trim(),
+
+      attendance:
+        Number(
+          document
+            .getElementById(
+              "studentAttendance"
+            )
+            .value
+        ),
+
+      performance:
+        Number(
+          document
+            .getElementById(
+              "studentPerformance"
+            )
+            .value
+        ),
+
+      assignments:
+        Number(
+          document
+            .getElementById(
+              "studentAssignments"
+            )
+            .value
+        )
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    closeModal(
+      "studentModal"
+    );
+
+    renderAll();
+
+    showToast(
+      t("addStudentSuccess")
+    );
+
+  }
+
+
+  /* =====================================================
+     ADD TEACHER
+  ===================================================== */
+
+  function addTeacher(event) {
+
+    event.preventDefault();
+
+
+    data.teachers.push({
+
+      id: Date.now(),
+
+      name:
+        document
+          .getElementById(
+            "teacherName"
+          )
+          .value
+          .trim(),
+
+      subject:
+        document
+          .getElementById(
+            "teacherSubject"
+          )
+          .value
+          .trim(),
+
+      email:
+        document
+          .getElementById(
+            "teacherEmail"
+          )
+          .value
+          .trim()
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    closeModal(
+      "teacherModal"
+    );
+
+    renderAll();
+
+    showToast(
+      t("addTeacherSuccess")
+    );
+
+  }
+
+
+  /* =====================================================
+     ADD CLASS
+  ===================================================== */
+
+  function addClass(event) {
+
+    event.preventDefault();
+
+
+    data.classes.push({
+
+      id: Date.now(),
+
+      name:
+        document
+          .getElementById(
+            "className"
+          )
+          .value
+          .trim(),
+
+      grade:
+        document
+          .getElementById(
+            "classGrade"
+          )
+          .value
+          .trim(),
+
+      room:
+        document
+          .getElementById(
+            "classRoom"
+          )
+          .value
+          .trim()
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    closeModal(
+      "classModal"
+    );
+
+    renderAll();
+
+    showToast(
+      t("addClassSuccess")
+    );
+
+  }
+
+
+  /* =====================================================
+     ADD SCHEDULE
+  ===================================================== */
+
+  function addSchedule(event) {
+
+    event.preventDefault();
+
+
+    data.schedule.push({
+
+      id: Date.now(),
+
+      day:
+        document
+          .getElementById(
+            "scheduleDay"
+          )
+          .value,
+
+      time:
+        document
+          .getElementById(
+            "scheduleTime"
+          )
+          .value,
+
+      subject:
+        document
+          .getElementById(
+            "scheduleSubject"
+          )
+          .value
+          .trim(),
+
+      teacher:
+        document
+          .getElementById(
+            "scheduleTeacher"
+          )
+          .value
+          .trim(),
+
+      room:
+        document
+          .getElementById(
+            "scheduleRoom"
+          )
+          .value
+          .trim()
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    closeModal(
+      "scheduleModal"
+    );
+
+    renderAll();
+
+    showToast(
+      t("addScheduleSuccess")
+    );
+
+  }
+
+
+  /* =====================================================
+     ADD RESOURCE
+  ===================================================== */
+
+  function addResource(event) {
+
+    event.preventDefault();
+
+
+    data.resources.push({
+
+      id: Date.now(),
+
+      name:
+        document
+          .getElementById(
+            "resourceName"
+          )
+          .value
+          .trim(),
+
+      type:
+        document
+          .getElementById(
+            "resourceType"
+          )
+          .value
+          .trim(),
+
+      quantity:
+        Number(
+          document
+            .getElementById(
+              "resourceQuantity"
+            )
+            .value
+        )
+
+    });
+
+
+    saveData();
+
+    event.target.reset();
+
+    closeModal(
+      "resourceModal"
+    );
+
+    renderAll();
+
+    showToast(
+      t("addResourceSuccess")
+    );
+
+  }
+
+
+  /* =====================================================
+     DELETE
+  ===================================================== */
+
+  function deleteItem(
+    type,
+    id
+  ) {
+
+    data[type] =
+      data[type].filter(
+        item =>
+          item.id !== id
+      );
+
+
+    saveData();
+
+    renderAll();
+
+    showToast(
+      t("deleted")
+    );
+
+  }
+
+
+  /* =====================================================
+     ATTENTION ENGINE
+  ===================================================== */
+
+  function attentionFor(
+    student
+  ) {
+
+    let score = 0;
+
+    const reasons = [];
+
+
+    const attendance =
+      Number(
+        student.attendance ?? 100
+      );
+
+
+    const performance =
+      Number(
+        student.performance ?? 100
+      );
+
+
+    const assignments =
+      Number(
+        student.assignments ?? 100
+      );
+
+
+    if(
+      attendance < 75
+    ) {
+
+      score += 35;
+
+      reasons.push(
+        currentLanguage === "ar"
+          ? "انخفاض الحضور"
+          : "Low attendance"
+      );
+
+    }
+    else if(
+      attendance < 85
+    ) {
+
+      score += 20;
+
+      reasons.push(
+        currentLanguage === "ar"
+          ? "الحضور يحتاج متابعة"
+          : "Attendance needs monitoring"
+      );
+
+    }
+
+
+    if(
+      performance < 60
+    ) {
+
+      score += 35;
+
+      reasons.push(
+        currentLanguage === "ar"
+          ? "انخفاض الأداء"
+          : "Low performance"
+      );
+
+    }
+    else if(
+      performance < 75
+    ) {
+
+      score += 20;
+
+      reasons.push(
+        currentLanguage === "ar"
+          ? "الأداء يحتاج متابعة"
+          : "Performance needs monitoring"
+      );
+
+    }
+
+
+    if(
+      assignments < 50
+    ) {
+
+      score += 20;
+
+      reasons.push(
+        currentLanguage === "ar"
+          ? "انخفاض إكمال الواجبات"
+          : "Low assignment completion"
+      );
+
+    }
+    else if(
+      assignments < 75
+    ) {
+
+      score += 10;
+
+      reasons.push(
+        currentLanguage === "ar"
+          ? "إكمال الواجبات يحتاج متابعة"
+          : "Assignment completion needs monitoring"
+      );
+
+    }
+
+
+    let level =
+      currentLanguage === "ar"
+        ? "منخفض"
+        : "Low";
+
+
+    if(score >= 50) {
+
+      level =
+        currentLanguage === "ar"
+          ? "مرتفع"
+          : "High";
+
+    }
+    else if(score >= 25) {
+
+      level =
+        currentLanguage === "ar"
+          ? "متوسط"
+          : "Medium";
+
+    }
+
+
+    return {
+
+      score,
+      level,
+      reasons
+
+    };
+
+  }
+
+
+  /* =====================================================
+     CONFLICTS
+  ===================================================== */
+
+  function getConflicts() {
+
+    const conflicts = [];
+
+
+    for(
+      let i = 0;
+      i < data.schedule.length;
+      i++
+    ) {
+
+
+      for(
+        let j = i + 1;
+        j < data.schedule.length;
+        j++
+      ) {
+
+
+        const a =
+          data.schedule[i];
+
+        const b =
+          data.schedule[j];
+
+
+        if(
+          a.day === b.day &&
+          a.time === b.time
+        ) {
+
+
+          if(
+            a.teacher &&
+            b.teacher &&
+            a.teacher.toLowerCase() ===
+            b.teacher.toLowerCase()
+          ) {
+
+            conflicts.push(
+
+              currentLanguage === "ar"
+
+                ? `تعارض للمعلم ${a.teacher} يوم ${a.day} الساعة ${a.time}`
+
+                : `Teacher conflict: ${a.teacher} on ${a.day} at ${a.time}`
+
+            );
+
+          }
+
+
+          if(
+            a.room &&
+            b.room &&
+            a.room.toLowerCase() ===
+            b.room.toLowerCase()
+          ) {
+
+            conflicts.push(
+
+              currentLanguage === "ar"
+
+                ? `تعارض للغرفة ${a.room} يوم ${a.day} الساعة ${a.time}`
+
+                : `Room conflict: ${a.room} on ${a.day} at ${a.time}`
+
+            );
+
+          }
+
+        }
+
+      }
+
+    }
+
+
+    return conflicts;
+
+  }
+
+
+  /* =====================================================
+     RUN AUTOMATION
+  ===================================================== */
+
+  function runAutomation() {
+
+    const conflicts =
+      getConflicts();
+
+
+    const attention =
+      data.students
+        .map(student => ({
+
+          student,
+
+          result:
+            attentionFor(
+              student
+            )
+
+        }))
+        .filter(
+          x =>
+            x.result.score >= 25
+        );
+
+
+    data.alerts = [];
+
+
+    conflicts.forEach(
+      message => {
+
+        data.alerts.push({
+
+          id:
+            Date.now() +
+            Math.random(),
+
+          type:
+            currentLanguage === "ar"
+              ? "تعارض"
+              : "Conflict",
+
+          level:
+            currentLanguage === "ar"
+              ? "مرتفع"
+              : "High",
+
+          message
+
+        });
+
+      }
+    );
+
+
+    attention.forEach(
+      item => {
+
+        data.alerts.push({
+
+          id:
+            Date.now() +
+            Math.random(),
+
+          type:
+            currentLanguage === "ar"
+              ? "Attention"
+              : "Attention",
+
+          level:
+            item.result.level,
+
+          message:
+
+            currentLanguage === "ar"
+
+              ? `${item.student.name} قد يحتاج إلى متابعة`
+
+              : `${item.student.name} may need follow-up`
+
+        });
+
+      }
+    );
+
+
+    saveData();
+
+    renderAll();
+
+
+    document
+      .getElementById(
+        "automationStatus"
+      )
+      .textContent =
+
+      currentLanguage === "ar"
+
+        ? `اكتملت الأتمتة — تم اكتشاف ${data.alerts.length} مشكلة`
+
+        : `Completed — ${data.alerts.length} issue(s) detected`;
+
+
+    document
+      .getElementById(
+        "automationLog"
+      )
+      .innerHTML = `
+
+
+        <div class="automation-box">
+
+
+          <div class="automation-icon">
+            ✓
+          </div>
+
+
+          <h3
+            data-ar="اكتملت الأتمتة"
+            data-en="Automation completed"
+          >
+            ${
+              currentLanguage === "ar"
+                ? "اكتملت الأتمتة"
+                : "Automation completed"
+            }
+          </h3>
+
+
+          <p>
+
+            ${
+              currentLanguage === "ar"
+
+                ? `قام أثر بفحص بيانات المدرسة الحالية. تم اكتشاف ${conflicts.length} تعارض في الجدول و${attention.length} حالة Attention.`
+
+                : `ATHAR checked your current school data. Detected ${conflicts.length} schedule conflict(s) and ${attention.length} attention case(s).`
+
+            }
+
+          </p>
+
+
+          <div class="automation-list">
+
+
+            <div class="automation-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              ${
+                currentLanguage === "ar"
+                  ? "تم فحص تعارضات الجدول"
+                  : "Schedule conflicts checked"
+              }
+
+            </div>
+
+
+            <div class="automation-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              ${
+                currentLanguage === "ar"
+                  ? "تم فحص مؤشرات Attention"
+                  : "Student attention indicators checked"
+              }
+
+            </div>
+
+
+            <div class="automation-item">
+
+              <div class="check">
+                ✓
+              </div>
+
+              ${
+                currentLanguage === "ar"
+                  ? "تم إنشاء التنبيهات"
+                  : "Alerts generated"
+              }
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      `;
+
+
+    showToast(
+      `${t("automationDone")} — ${data.alerts.length}`
+    );
+
+  }
+
+
+  /* =====================================================
+     STUDENTS RENDER
+  ===================================================== */
+
+  function renderStudents() {
+
+    const table =
+      document.getElementById(
+        "studentsTable"
+      );
+
+
+    if(
+      !data.students.length
+    ) {
+
+      table.innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="7"
+            class="table-empty"
+          >
+
+            ${t("noStudents")}
+
+          </td>
+
+        </tr>
+
+      `;
+
+      return;
+
+    }
+
+
+    table.innerHTML =
+      data.students
+        .map(student => `
+
+          <tr>
+
+            <td>
+
+              <strong>
+                ${escapeHtml(
+                  student.name
+                )}
+              </strong>
+
+            </td>
+
+
+            <td>
+              ${escapeHtml(
+                student.studentId
+              )}
+            </td>
+
+
+            <td>
+              ${escapeHtml(
+                student.className ||
+                "—"
+              )}
+            </td>
+
+
+            <td>
+              ${student.attendance}%
+            </td>
+
+
+            <td>
+              ${student.performance}%
+            </td>
+
+
+            <td>
+              ${student.assignments}%
+            </td>
+
+
+            <td>
+
+              <button
+                class="btn btn-danger"
+                onclick="deleteItem(
+                  'students',
+                  ${student.id}
+                )"
+              >
+
+                ${
+                  currentLanguage === "ar"
+                    ? "حذف"
+                    : "Delete"
+                }
+
+              </button>
+
+            </td>
+
+
+          </tr>
+
+        `)
+        .join("");
+
+  }
+
+
+  /* =====================================================
+     TEACHERS
+  ===================================================== */
+
+  function renderTeachers() {
+
+    const table =
+      document.getElementById(
+        "teachersTable"
+      );
+
+
+    if(
+      !data.teachers.length
+    ) {
+
+      table.innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="4"
+            class="table-empty"
+          >
+
+            ${t("noTeachers")}
+
+          </td>
+
+        </tr>
+
+      `;
+
+      return;
+
+    }
+
+
+    table.innerHTML =
+      data.teachers
+        .map(teacher => `
+
+          <tr>
+
+            <td>
+              ${escapeHtml(
+                teacher.name
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                teacher.subject
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                teacher.email ||
+                "—"
+              )}
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-danger"
+                onclick="deleteItem(
+                  'teachers',
+                  ${teacher.id}
+                )"
+              >
+
+                ${
+                  currentLanguage === "ar"
+                    ? "حذف"
+                    : "Delete"
+                }
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        `)
+        .join("");
+
+  }
+
+
+  /* =====================================================
+     CLASSES
+  ===================================================== */
+
+  function renderClasses() {
+
+    const grid =
+      document.getElementById(
+        "classesGrid"
+      );
+
+
+    if(
+      !data.classes.length
+    ) {
+
+      grid.innerHTML = `
+
+        <div class="card">
+
+          <div class="empty">
+
+            <div class="empty-icon">
+              ▦
+            </div>
+
+            <h3>
+              ${
+                currentLanguage === "ar"
+                  ? "لا توجد فصول بعد"
+                  : "No classes yet"
+              }
+            </h3>
+
+            <p>
+              ${
+                currentLanguage === "ar"
+                  ? "أضف فصول مدرستك."
+                  : "Add your school classes."
+              }
+            </p>
+
+          </div>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    grid.innerHTML =
+      data.classes
+        .map(item => `
+
+          <div class="card">
+
+            <div class="automation-icon">
+              ▦
+            </div>
+
+
+            <h3>
+              ${escapeHtml(
+                item.name
+              )}
+            </h3>
+
+
+            <p
+              style="
+                color:var(--muted);
+                font-size:10px;
+                margin-top:7px;
+              "
+            >
+
+              ${
+                currentLanguage === "ar"
+                  ? "الصف:"
+                  : "Grade:"
+              }
+
+              ${escapeHtml(
+                item.grade ||
+                "—"
+              )}
+
+            </p>
+
+
+            <p
+              style="
+                color:var(--muted);
+                font-size:10px;
+                margin-top:5px;
+              "
+            >
+
+              ${
+                currentLanguage === "ar"
+                  ? "الغرفة:"
+                  : "Room:"
+              }
+
+              ${escapeHtml(
+                item.room ||
+                "—"
+              )}
+
+            </p>
+
+
+            <button
+              class="btn btn-danger"
+              style="margin-top:15px"
+              onclick="deleteItem(
+                'classes',
+                ${item.id}
+              )"
+            >
+
+              ${
+                currentLanguage === "ar"
+                  ? "حذف"
+                  : "Delete"
+              }
+
+            </button>
+
+
+          </div>
+
+        `)
+        .join("");
+
+  }
+
+
+  /* =====================================================
+     SCHEDULE
+  ===================================================== */
+
+  function renderSchedule() {
+
+    const table =
+      document.getElementById(
+        "scheduleTable"
+      );
+
+
+    if(
+      !data.schedule.length
+    ) {
+
+      table.innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="6"
+            class="table-empty"
+          >
+
+            ${t("noSchedule")}
+
+          </td>
+
+        </tr>
+
+      `;
+
+      return;
+
+    }
+
+
+    table.innerHTML =
+      data.schedule
+        .map(item => `
+
+          <tr>
+
+            <td>
+              ${escapeHtml(
+                translateDay(
+                  item.day
+                )
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                item.time
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                item.subject
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                item.teacher ||
+                "—"
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                item.room ||
+                "—"
+              )}
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-danger"
+                onclick="deleteItem(
+                  'schedule',
+                  ${item.id}
+                )"
+              >
+
+                ${
+                  currentLanguage === "ar"
+                    ? "حذف"
+                    : "Delete"
+                }
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        `)
+        .join("");
+
+  }
+
+
+  function translateDay(day) {
+
+    if(
+      currentLanguage === "en"
+    ) {
+
+      return day;
+
+    }
+
+
+    const days = {
+
+      Sunday:
+        "الأحد",
+
+      Monday:
+        "الاثنين",
+
+      Tuesday:
+        "الثلاثاء",
+
+      Wednesday:
+        "الأربعاء",
+
+      Thursday:
+        "الخميس"
+
+    };
+
+
+    return days[day] || day;
+
+  }
+
+
+  /* =====================================================
+     RESOURCES
+  ===================================================== */
+
+  function renderResources() {
+
+    const grid =
+      document.getElementById(
+        "resourcesGrid"
+      );
+
+
+    if(
+      !data.resources.length
+    ) {
+
+      grid.innerHTML = `
+
+        <div class="card">
+
+          <div class="empty">
+
+            <div class="empty-icon">
+              ▤
+            </div>
+
+            <h3>
+              ${
+                currentLanguage === "ar"
+                  ? "لا توجد موارد بعد"
+                  : "No resources yet"
+              }
+            </h3>
+
+            <p>
+              ${t("noResources")}
+            </p>
+
+          </div>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    grid.innerHTML =
+      data.resources
+        .map(item => `
+
+          <div class="card">
+
+
+            <div class="automation-icon">
+              ▤
+            </div>
+
+
+            <h3>
+              ${escapeHtml(
+                item.name
+              )}
+            </h3>
+
+
+            <p
+              style="
+                color:var(--muted);
+                font-size:10px;
+                margin-top:6px;
+              "
+            >
+
+              ${
+                currentLanguage === "ar"
+                  ? "النوع:"
+                  : "Type:"
+              }
+
+              ${escapeHtml(
+                item.type ||
+                "—"
+              )}
+
+            </p>
+
+
+            <p
+              style="
+                color:var(--muted);
+                font-size:10px;
+                margin-top:5px;
+              "
+            >
+
+              ${
+                currentLanguage === "ar"
+                  ? "الكمية:"
+                  : "Quantity:"
+              }
+
+              ${item.quantity}
+
+            </p>
+
+
+            <button
+              class="btn btn-danger"
+              style="margin-top:15px"
+              onclick="deleteItem(
+                'resources',
+                ${item.id}
+              )"
+            >
+
+              ${
+                currentLanguage === "ar"
+                  ? "حذف"
+                  : "Delete"
+              }
+
+            </button>
+
+
+          </div>
+
+        `)
+        .join("");
+
+  }
+
+
+  /* =====================================================
+     ATTENTION RENDER
+  ===================================================== */
+
+  function renderAttention() {
+
+    const table =
+      document.getElementById(
+        "attentionTable"
+      );
+
+
+    const cases =
+      data.students
+
+        .map(student => ({
+
+          student,
+
+          result:
+            attentionFor(
+              student
+            )
+
+        }))
+
+        .filter(
+          x =>
+            x.result.score >= 25
+        );
+
+
+    document
+      .getElementById(
+        "attentionSummary"
+      )
+      .textContent =
+      `${cases.length} ${t("cases")}`;
+
+
+    document
+      .getElementById(
+        "attentionCount"
+      )
+      .textContent =
+      cases.length;
+
+
+    if(
+      !cases.length
+    ) {
+
+      table.innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="4"
+            class="table-empty"
+          >
+
+            ${t("noAttention")}
+
+          </td>
+
+        </tr>
+
+      `;
+
+
+      document
+        .getElementById(
+          "attentionSummaryBox"
+        )
+        .innerHTML = `
+
+          <div
+            class="empty"
+            style="padding:20px"
+          >
+
+            <div class="empty-icon">
+              ✓
+            </div>
+
+            <h3>
+
+              ${
+                currentLanguage === "ar"
+                  ? "لا توجد حالات"
+                  : "No cases"
+              }
+
+            </h3>
+
+            <p>
+
+              ${
+                currentLanguage === "ar"
+                  ? "أضف بيانات الطلاب لتحليل مؤشرات Attention."
+                  : "Add student data to analyze attention indicators."
+              }
+
+            </p>
+
+          </div>
+
+        `;
+
+      return;
+
+    }
+
+
+    document
+      .getElementById(
+        "attentionSummaryBox"
+      )
+      .innerHTML = `
+
+        <div>
+
+          <strong
+            style="font-size:25px"
+          >
+            ${cases.length}
+          </strong>
+
+          <div
+            style="
+              color:var(--muted);
+              font-size:10px;
+              margin-top:4px;
+            "
+          >
+            ${t("studentsNeed")}
+          </div>
+
+        </div>
+
+      `;
+
+
+    table.innerHTML =
+      cases
+
+        .sort(
+          (a,b) =>
+            b.result.score -
+            a.result.score
+        )
+
+        .map(item => {
+
+
+          const levelClass =
+            item.result.level ===
+              (
+                currentLanguage === "ar"
+                  ? "مرتفع"
+                  : "High"
+              )
+
+              ? "badge-red"
+
+              : "badge-orange";
+
+
+          return `
+
+            <tr>
+
+
+              <td>
+
+                <strong>
+                  ${escapeHtml(
+                    item.student.name
+                  )}
+                </strong>
+
+              </td>
+
+
+              <td>
+
+
+                <div
+                  style="
+                    display:flex;
+                    align-items:center;
+                    gap:9px;
+                  "
+                >
+
+                  <div
+                    class="attention-score"
+                  >
+                    ${item.result.score}
+                  </div>
+
+                  <span>
+                    / 100
+                  </span>
+
+                </div>
+
+
+              </td>
+
+
+              <td>
+
+                <span
+                  class="badge ${levelClass}"
+                >
+                  ${item.result.level}
+                </span>
+
+              </td>
+
+
+              <td>
+
+                ${item.result.reasons
+                  .map(
+                    reason =>
+                      `<div
+                        style="margin-bottom:3px"
+                      >
+                        • ${escapeHtml(
+                          reason
+                        )}
+                      </div>`
+                  )
+                  .join("")
+                }
+
+              </td>
+
+
+            </tr>
+
+          `;
+
+        })
+
+        .join("");
+
+  }
+
+
+  /* =====================================================
+     ALERTS
+  ===================================================== */
+
+  function renderAlerts() {
+
+    const container =
+      document.getElementById(
+        "alertsList"
+      );
+
+
+    if(
+      !data.alerts.length
+    ) {
+
+      container.innerHTML = `
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            ♢
+          </div>
+
+          <h3>
+            ${
+              currentLanguage === "ar"
+                ? "لا توجد تنبيهات"
+                : "No alerts"
+            }
+          </h3>
+
+          <p>
+            ${
+              currentLanguage === "ar"
+                ? "شغل الأتمتة بعد إضافة بيانات المدرسة."
+                : "Run automation after adding school data."
+            }
+          </p>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      data.alerts
+
+        .map(alert => `
+
+          <div
+            class="automation-box"
+            style="margin-bottom:10px"
+          >
+
+
+            <span
+              class="badge ${
+                (
+                  alert.level === "High" ||
+                  alert.level === "مرتفع"
+                )
+                  ? "badge-red"
+                  : "badge-orange"
+              }"
+            >
+              ${escapeHtml(
+                alert.level
+              )}
+            </span>
+
+
+            <h3
+              style="
+                margin-top:9px;
+                font-size:13px;
+              "
+            >
+              ${escapeHtml(
+                alert.type
+              )}
+            </h3>
+
+
+            <p
+              style="
+                color:var(--muted);
+                font-size:10px;
+                margin-top:5px;
+              "
+            >
+              ${escapeHtml(
+                alert.message
+              )}
+            </p>
+
+
+          </div>
+
+        `)
+
+        .join("");
+
+  }
+
+
+  /* =====================================================
+     ANALYTICS
+  ===================================================== */
+
+  function renderAnalytics() {
+
+    if(
+      !data.students.length
+    ) {
+
+      [
+        "analyticsAttendance",
+        "analyticsAttendance2",
+        "analyticsPerformance",
+        "analyticsPerformance2"
+      ]
+      .forEach(
+        id => {
+
+          document
+            .getElementById(id)
+            .textContent =
+            "0%";
+
+        }
+      );
+
+
+      document
+        .getElementById(
+          "analyticsAttendanceBar"
+        )
+        .style.width =
+        "0%";
+
+
+      document
+        .getElementById(
+          "analyticsPerformanceBar"
+        )
+        .style.width =
+        "0%";
+
+
+      document
+        .getElementById(
+          "analyticsInsights"
+        )
+        .innerHTML = `
+
+          <div class="empty">
+
+            <div class="empty-icon">
+              ◩
+            </div>
+
+            <h3>
+              ${
+                currentLanguage === "ar"
+                  ? "لا توجد تحليلات بعد"
+                  : "No insights yet"
+              }
+            </h3>
+
+            <p>
+              ${
+                currentLanguage === "ar"
+                  ? "أضف بيانات الطلاب لإنشاء التحليلات."
+                  : "Add student data to generate insights."
+              }
+            </p>
+
+          </div>
+
+        `;
+
+      return;
+
+    }
+
+
+    const avgAttendance =
+      Math.round(
+
+        data.students.reduce(
+          (sum,s) =>
+            sum +
+            Number(
+              s.attendance || 0
+            ),
+          0
+        )
+        /
+        data.students.length
+
+      );
+
+
+    const avgPerformance =
+      Math.round(
+
+        data.students.reduce(
+          (sum,s) =>
+            sum +
+            Number(
+              s.performance || 0
+            ),
+          0
+        )
+        /
+        data.students.length
+
+      );
+
+
+    document
+      .getElementById(
+        "analyticsAttendance"
+      )
+      .textContent =
+      `${avgAttendance}%`;
+
+
+    document
+      .getElementById(
+        "analyticsAttendance2"
+      )
+      .textContent =
+      `${avgAttendance}%`;
+
+
+    document
+      .getElementById(
+        "analyticsPerformance"
+      )
+      .textContent =
+      `${avgPerformance}%`;
+
+
+    document
+      .getElementById(
+        "analyticsPerformance2"
+      )
+      .textContent =
+      `${avgPerformance}%`;
+
+
+    document
+      .getElementById(
+        "analyticsAttendanceBar"
+      )
+      .style.width =
+      `${avgAttendance}%`;
+
+
+    document
+      .getElementById(
+        "analyticsPerformanceBar"
+      )
+      .style.width =
+      `${avgPerformance}%`;
+
+
+    const attention =
+      data.students
+        .filter(
+          s =>
+            attentionFor(s)
+              .score >= 25
+        )
+        .length;
+
+
+    document
+      .getElementById(
+        "analyticsInsights"
+      )
+      .innerHTML = `
+
+        <div class="automation-list">
+
+
+          <div class="automation-item">
+
+            <div class="check">
+              ✓
+            </div>
+
+            ${
+              currentLanguage === "ar"
+                ? `متوسط الحضور: ${avgAttendance}%`
+                : `Average attendance: ${avgAttendance}%`
+            }
+
+          </div>
+
+
+          <div class="automation-item">
+
+            <div class="check">
+              ✓
+            </div>
+
+            ${
+              currentLanguage === "ar"
+                ? `متوسط الأداء: ${avgPerformance}%`
+                : `Average performance: ${avgPerformance}%`
+            }
+
+          </div>
+
+
+          <div class="automation-item">
+
+            <div class="check">
+              !
+            </div>
+
+            ${
+              currentLanguage === "ar"
+                ? `طلاب يحتاجون إلى متابعة: ${attention}`
+                : `Students requiring attention: ${attention}`
+            }
+
+          </div>
+
+
+        </div>
+
+      `;
+
+  }
+
+
+  /* =====================================================
+     DASHBOARD
+  ===================================================== */
+
+  function renderDashboard() {
+
+    document
+      .getElementById(
+        "studentsCount"
+      )
+      .textContent =
+      data.students.length;
+
+
+    document
+      .getElementById(
+        "teachersCount"
+      )
+      .textContent =
+      data.teachers.length;
+
+
+    document
+      .getElementById(
+        "classesCount"
+      )
+      .textContent =
+      data.classes.length;
+
+
+    const attention =
+      data.students
+        .filter(
+          student =>
+            attentionFor(
+              student
+            ).score >= 25
+        )
+        .length;
+
+
+    document
+      .getElementById(
+        "attentionCount"
+      )
+      .textContent =
+      attention;
+
+
+    if(
+      !data.students.length
+    ) {
+
+      document
+        .getElementById(
+          "overviewEmpty"
+        )
+        .style.display =
+        "block";
+
+
+      document
+        .getElementById(
+          "overviewStats"
+        )
+        .style.display =
+        "none";
+
+
+      return;
+
+    }
+
+
+    document
+      .getElementById(
+        "overviewEmpty"
+      )
+      .style.display =
+      "none";
+
+
+    document
+      .getElementById(
+        "overviewStats"
+      )
+      .style.display =
+      "block";
+
+
+    const attendance =
+      Math.round(
+
+        data.students.reduce(
+          (sum,s) =>
+            sum +
+            Number(
+              s.attendance || 0
+            ),
+          0
+        )
+        /
+        data.students.length
+
+      );
+
+
+    const performance =
+      Math.round(
+
+        data.students.reduce(
+          (sum,s) =>
+            sum +
+            Number(
+              s.performance || 0
+            ),
+          0
+        )
+        /
+        data.students.length
+
+      );
+
+
+    document
+      .getElementById(
+        "avgAttendance"
+      )
+      .textContent =
+      `${attendance}%`;
+
+
+    document
+      .getElementById(
+        "avgPerformance"
+      )
+      .textContent =
+      `${performance}%`;
+
+
+    document
+      .getElementById(
+        "attendanceProgress"
+      )
+      .style.width =
+      `${attendance}%`;
+
+
+    document
+      .getElementById(
+        "performanceProgress"
+      )
+      .style.width =
+      `${performance}%`;
+
+  }
+
+
+  /* =====================================================
+     CLEAR DATA
+  ===================================================== */
+
+  function clearAllData() {
+
+    if(
+      !confirm(
+        t("clearConfirm")
+      )
+    ) return;
+
+
+    data = {
+
+      students: [],
+      teachers: [],
+      classes: [],
+      schedule: [],
+      resources: [],
+      alerts: []
+
+    };
+
+
+    saveData();
+
+    renderAll();
+
+    showToast(
+      t("cleared")
+    );
+
+  }
+
+
+  /* =====================================================
+     ESCAPE HTML
+  ===================================================== */
+
+  function escapeHtml(
+    value
+  ) {
+
+    return String(value)
+
+      .replaceAll(
+        "&",
+        "&amp;"
+      )
+
+      .replaceAll(
+        "<",
+        "&lt;"
+      )
+
+      .replaceAll(
+        ">",
+        "&gt;"
+      )
+
+      .replaceAll(
+        '"',
+        "&quot;"
+      )
+
+      .replaceAll(
+        "'",
+        "&#039;"
+      );
+
+  }
+
+
+  /* =====================================================
+     SEARCH
+  ===================================================== */
+
+  document
+    .getElementById(
+      "globalSearch"
+    )
+    .addEventListener(
+      "input",
+      function() {
+
+
+        const value =
+          this.value
+            .toLowerCase()
+            .trim();
+
+
+        if(!value) {
+
+          renderStudents();
+
+          return;
+
+        }
+
+
+        const table =
+          document.getElementById(
+            "studentsTable"
+          );
+
+
+        const results =
+          data.students.filter(
+            student =>
+
+              `
+
+                ${student.name}
+
+                ${student.studentId}
+
+                ${student.className}
+
+              `
+              .toLowerCase()
+              .includes(value)
+
+          );
+
+
+        if(!results.length) {
+
+          table.innerHTML = `
+
+            <tr>
+
+              <td
+                colspan="7"
+                class="table-empty"
+              >
+
+                ${
+                  currentLanguage === "ar"
+                    ? "لم يتم العثور على طلاب."
+                    : "No matching students found."
+                }
+
+              </td>
+
+            </tr>
+
+          `;
+
+          return;
+
+        }
+
+
+        table.innerHTML =
+          results
+            .map(student => `
+
+              <tr>
+
+                <td>
+                  <strong>
+                    ${escapeHtml(
+                      student.name
+                    )}
+                  </strong>
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    student.studentId
+                  )}
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    student.className ||
+                    "—"
+                  )}
+                </td>
+
+                <td>
+                  ${student.attendance}%
+                </td>
+
+                <td>
+                  ${student.performance}%
+                </td>
+
+                <td>
+                  ${student.assignments}%
+                </td>
+
+                <td>
+
+                  <button
+                    class="btn btn-danger"
+                    onclick="deleteItem(
+                      'students',
+                      ${student.id}
+                    )"
+                  >
+
+                    ${
+                      currentLanguage === "ar"
+                        ? "حذف"
+                        : "Delete"
+                    }
+
+                  </button>
+
+                </td>
+
+              </tr>
+
+            `)
+            .join("");
+
+      }
+    );
+
+
+  /* =====================================================
+     RENDER ALL
+  ===================================================== */
+
+  function renderAll() {
+
+    renderDashboard();
+
+    renderStudents();
+
+    renderTeachers();
+
+    renderClasses();
+
+    renderSchedule();
+
+    renderResources();
+
+    renderAttention();
+
+    renderAlerts();
+
+    renderAnalytics();
+
+  }
+
+
+  /* =====================================================
+     INIT
+  ===================================================== */
+
+  applyLanguage();
+
+</script>
+
+</body>
+</html>
